@@ -16,13 +16,16 @@ fi
 mkdir $root_dir
 mkdir $backup_dir
 
+git clone https://github.com/VundleVim/Vundle.vim.git $home_dir/.vim/bundle/Vundle.vim
+
 work_dir=$(cd "$(dirname $0)" && pwd)
 [ -f $home_dir/.vimrc ] && cp $home_dir/.vimrc $backup_dir
 [ -f $home_dir/.tmux.conf ] && cp $home_dir/.tmux.conf $backup_dir
 [ -f $home_dir/.bashrc ] && cp $home_dir/.bashrc $backup_dir
-cp $work_dir/.vimrc $home_dir
-cp $work_dir/.tmux.conf $home_dir
-cp $work_dir/.bashrc $home_dir
+[ -d $home_dir/.vim ] && cp -r $home_dir/.vim $backup_dir
+cp $work_dir/configs/.vimrc $home_dir
+cp $work_dir/configs/.tmux.conf $home_dir
+cp $work_dir/configs/.bashrc $home_dir
 cp -r $work_dir/mylibs $root_dir
 cp -r $work_dir/mytools $root_dir
 source $home_dir/.bashrc
