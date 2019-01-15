@@ -16,3 +16,6 @@ set background=dark
 set sw=4
 set ts=4
 set autoindent
+
+" 解决了gruvbox主题在tmux下显示异常的问题
+set t_ut=
